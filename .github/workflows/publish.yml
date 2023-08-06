@@ -1,0 +1,29 @@
+name: Publish Contact-me component to NPM
+on:
+  push:
+    branches:
+      - master
+jobs:
+  publish_to_npm:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+
+      - name: Setup npm
+        uses: actions/setup-node@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Add version
+        run: npm version 1.0.${{ github.run_id }}${{ github.run_attempt }} --no-git-tag-version
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: npm publish
