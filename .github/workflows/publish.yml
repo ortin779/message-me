@@ -1,4 +1,4 @@
-name: Publish Contact-me component to NPM
+name: Publish message-me component to NPM
 on:
   push:
     branches:
