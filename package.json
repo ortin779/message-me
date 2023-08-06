@@ -1,7 +1,7 @@
 {
   "name": "message-me",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "A Message form using EmailJS",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -12,7 +12,7 @@
   "unpkg": "dist/message-me/message-me.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "https://github.com/ortin779/message-me.git"
   },
   "files": [
     "dist/",
@@ -26,6 +26,7 @@
     "generate": "stencil generate"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@stencil/core": "^4.0.0"
   },
   "devDependencies": {
