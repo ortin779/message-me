@@ -1,4 +1,4 @@
-import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import { Component, Host, Prop, State, Watch, h } from '@stencil/core';
 
 @Component({
@@ -10,17 +10,17 @@ export class MessageMe {
   /**
    *Public Key of the Email JS
    */
-  @Prop({ attribute: 'public-key' }) publicKey!: string;
+  @Prop({ attribute: 'publicKey' }) publicKey!: string;
 
   /**
    *Email Service Id to send the email
    */
-  @Prop({ attribute: 'service-id' }) serviceId!: string;
+  @Prop({ attribute: 'serviceId' }) serviceId!: string;
 
   /**
    *Template id of the Email JS Template
    */
-  @Prop({ attribute: 'template-id' }) templateId!: string;
+  @Prop({ attribute: 'templateId' }) templateId!: string;
 
   @State() fromName: string;
   @State() replyTo: string;
@@ -88,7 +88,7 @@ export class MessageMe {
       );
       this.handleResetForm();
     } catch (error) {
-      this.error = (error as EmailJSResponseStatus).text;
+      this.error = error;
     }
     this.isLoading = false;
   }
